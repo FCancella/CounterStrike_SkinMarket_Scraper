@@ -1,6 +1,7 @@
 # Cs Skins Spread Explorer - DashXBUFF163
 
-História:
+## História:
+
 Este código foi desenvolvido com o objetivo de identificar as melhores oportunidades de negociação de skins no mercado de CS:GO, aproveitando a diferença de preços entre a plataforma brasileira Dash Skins e o mercado global representado pelo serviço Buff.163.
 
 No mercado nacional de skins de CS:GO, embora seja significativo, a oferta de produtos e os preços baixos são limitados quando comparados ao mercado global. Atualmente, a Dash Skins é o único site brasileiro que permite aos usuários anunciar seus itens por qualquer preço desejado, oferecendo um ambiente de "livre mercado". Por outro lado, o Buff.163 é reconhecido como o maior mercado global de skins, especialmente aquecido no mercado chinês. No entanto, o Buff aceita apenas pagamentos nacionais chineses, impossibilitando transações diretas de usuários estrangeiros.
@@ -14,14 +15,16 @@ Com base em conhecimentos em HTML, CSS e Python, consegui criar toda a lógica n
 Com todos os aspectos discutidos e as dúvidas esclarecidas, foi possível programar em conjunto com o ChatGPT um modelo extremamente útil para a finalidade deste projeto.
 
 
-Lógica e Especificações:
+
+## Lógica e Especificações:
+
 Para coletar os dados dos produtos na Dash Skins, utilizei a biblioteca BeautifulSoup. Através da análise do HTML da página, é possível extrair informações como nome e preço dos itens anunciados.
 
 Em seguida, procuro o preço desses mesmos produtos no Buff.163, e como a plataforma não permite acesso direto a usuários não logados, contornei essa restrição utilizando o site csgoskins.gg, que fornece informações sobre preços de itens anunciados no Buff.
 
 Com todos os dados coletados, aplico filtros com base em parâmetros como o valor do spread e número de ofertas, armazenando as informações em um DataFrame e exibindo-as no terminal.
 
-Uso e Contribuições:
+## Uso e Contribuições:
     1. Clone o repositório e instale as dependências necessárias.
     2. Execute o código alterando os parametros, se necessario.
         Preco Min./Max. de busca (linhas 122, 123)
