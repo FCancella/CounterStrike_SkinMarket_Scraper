@@ -4,10 +4,11 @@ import pandas as pd
 import locale
 import requests
 from bs4 import BeautifulSoup
-import dashxbufffunctions
+import buff_price_scraper
+import usd_rate_api
 
 '''
-Biblioteca/Arquivo auxiliar dashxbufffunctions -
+Biblioteca/Arquivo auxiliar buff_price_scraper -
 
 def get_skin_price(product_name, driver):
     Recebe o nome do produto no formato padrao da steam, e o driver aberto
@@ -19,12 +20,20 @@ def get_price_from_page(product_link, driver):
     Entra na pagina do produto no site csgoskins.gg, onde é possivel coletar o dash_price do item no BUFF163.com sem precisar de API ou login
     Busca o dash_price do BUFF163 dentre diversos outros sites que o csgoskins.gg mostra
     Retorna preço e quantidade de ofertas do item
+
+
+
+Biblioteca/Arquivo auxiliar usd_rate_api -
+
+def usd_rate_api():
+    Utiliza a ExchangeRatesAPI para retornar o preco do dolar USD (USDxBRL)
 '''
+
 
 # Definindo o local para o idioma e região como 'pt_BR'
 locale.setlocale(locale.LC_ALL, 'pt_BR')
 
-usd_rate = dashxbufffunctions.usd2brl()
+usd_rate = usd_rate_api.usd2brl()
 
 # Ignora/Não mostra os erros no prompt. Exemplo: ...ERROR:device_event_log_impl...
 options = webdriver.ChromeOptions()
@@ -119,7 +128,7 @@ for i in range(1, num_pages+1):
         products[product_name] = dash_price
 
         # Obtém o preço e a quantidade de ofertas do produto na plataforma "Buff163"
-        [buff_price, buff_offers] = dashxbufffunctions.get_skin_price(product_name, driver)
+        [buff_price, buff_offers] = buff_price_scraper.get_skin_price(product_name, driver)
 
         # Formata os valores para serem adicionados na lista e impressos
         buff_price = round(buff_price * usd_rate, 2)
