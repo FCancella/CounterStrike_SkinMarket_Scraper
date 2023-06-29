@@ -1,4 +1,4 @@
-# Cs Skins Spread Explorer - DashXBUFF163
+# CounterStrike Skin Market Scraper - Dash x BUFF163
 
 ## Objetivo:
 
