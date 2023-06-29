@@ -2,9 +2,9 @@
 
 ## Objetivo:
 
-O objetivo principal deste código é identificar e aproveitar as melhores oportunidades de negociação de skins no mercado nacional de Counter-Strike. Para isso, o código busca as melhores ofertas dentro da plataforma brasileira Dash Skins (dashskins.com.br) e compara com o mercado global representado pelo site chinês, BUFF163 (buff.163.com). O código visa facilitar o processo de "transportar" dinheiro do mercado nacional para o mercado global, permitindo aos usuários tirarem proveito das vantagens oferecidas por um mercado mais amplo, com uma oferta maior.
+O objetivo principal deste código é identificar e aproveitar as melhores oportunidades de negociação de skins no mercado nacional de Counter-Strike. Para isso, o código busca as melhores ofertas dentro da plataforma brasileira Dash Skins (dashskins.com.br) e compara com o mercado global representado pelo site chinês, BUFF163 (buff.163.com).
 
-Assim, ao buscar e explorar essas oportunidades, o objetivo final é viabilizar a transferência de dinheiro para o mercado global, buscando lucros por meio do spread, ao explorar e aproveitar o máximo de ofertas disponíveis no mercado nacional.
+O código visa facilitar o processo de "transportar" dinheiro do mercado nacional para o mercado global, buscando lucros por meio do spread, e permitindo aos usuários tirarem proveito das vantagens oferecidas por um mercado mais amplo, com uma oferta maior.
 
 
 ## História:
