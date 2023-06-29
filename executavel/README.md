@@ -18,4 +18,4 @@
 
 - O programa pode demorar um pouco para inicializar.
 
-- É provavel que o Windows exiba um aviso bloqueando a execução do programa devido a medidas de segurança. No entanto, o executável disponibilizado é uma compilação do código `dashXbuffV3.py` e não representa qualquer risco à segurança do sistema.
+- É provavel que o Windows exiba um aviso bloqueando a execução do programa devido a medidas de segurança. No entanto, o executável disponibilizado é uma compilação do código [dashXbuffV3.py](https://github.com/FCancella/CounterStrike_SkinMarket_Scraper/blob/4e2fc38cc955553809f52b830b51d9b3c9cad3fe/executavel/dashXbuffV3.py) e não representa qualquer risco à segurança do sistema.
