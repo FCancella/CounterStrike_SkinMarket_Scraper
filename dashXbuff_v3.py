@@ -142,39 +142,39 @@ for i in range(1, num_pages+1):
         # Realiza um reajuste de preço (-7%) caso o spread seja menor que -8, indicando que é um item para venda da plataforma "Buff163" para a plataforma "Dashskins".
         # Obs1.: -7% é a minha taxa de venda na Dashskins
         # Obs2.: -8%, já que com [0%,7%] a conta transformaria o número em porcentagem positiva
-        if diff < -8:
-            diff = int((buff_price / (dash_price*0.93) - 1) * 100)
+        # if diff < -8:
+        diff = int((buff_price / (dash_price*0.93) - 1) * 100)
 
         # Verifica se o produto atende aos critérios estabelecidos para ser incluído na lista de skins
-        if (diff >= 10 and buff_offers >= 100) or (diff >= 5 and buff_offers >= 300) or (diff >= -5 and buff_offers >= 600) or (diff <= -20 and buff_offers >= 900 and product_name.split()[0] != "sticker" and product_name.split()[0] != "music"):
+        # if (diff >= 10 and buff_offers >= 100) or (diff >= 5 and buff_offers >= 300) or (diff >= -5 and buff_offers >= 600) or (diff <= -20 and buff_offers >= 900 and product_name.split()[0] != "sticker" and product_name.split()[0] != "music"):
 
-            # Verifica se a diferença percentual é igual a -100 (buff price = 0) e quebra, caso contrário, adiciona a diferença percentual formatada na lista
-            if diff == -100:
-                break
-            elif isinstance(diff, int):
-                skin_diff.append(f"{diff:.0f}%")
-            else:
-                skin_diff.append("ERRO")
+        #     # Verifica se a diferença percentual é igual a -100 (buff price = 0) e quebra, caso contrário, adiciona a diferença percentual formatada na lista
+        #     if diff == -100:
+        #         break
+        #     elif isinstance(diff, int):
+        #         skin_diff.append(f"{diff:.0f}%")
+        #     else:
+        #         skin_diff.append("ERRO")
                 
             # Adiciona as informações restantes do produto às listas correspondentes
-            skin_name.append(product_name)
-            skin_dash_price.append(dash_price_str)
-            skin_buff_price.append(buff_price_str)
-            skin_buff_offers.append(buff_offers)
+        skin_name.append(product_name)
+        skin_dash_price.append(dash_price_str)
+        skin_buff_price.append(buff_price_str)
+        skin_buff_offers.append(buff_offers)
 
-            # Adiciona uma nova linha ao dataframe com as informações do produto
-            new_row = pd.DataFrame({'Name': [product_name],
-                                    'Dash price': [dash_price_str],
-                                    'Buff price': [buff_price_str],
-                                    'Price diff': [diff],
-                                    'Buff offers': [buff_offers]})
+        # Adiciona uma nova linha ao dataframe com as informações do produto
+        new_row = pd.DataFrame({'Name': [product_name],
+                                'Dash price': [dash_price_str],
+                                'Buff price': [buff_price_str],
+                                'Price diff': [diff],
+                                'Buff offers': [buff_offers]})
 
-            df = pd.concat([df, new_row], ignore_index=True)
+        df = pd.concat([df, new_row], ignore_index=True)
 
-            resultado_str = f"R$ {dash_price_str} \tBUFF ${(buff_price/usd_rate):.2f} (R${buff_price_str})\t {buff_offers}\t   {diff}%  \t {product_name}" 
-            print(resultado_str)
+        resultado_str = f"R$ {dash_price_str} \tBUFF ${(buff_price/usd_rate):.2f} (R${buff_price_str})\t {buff_offers}\t   {diff}%  \t {product_name}" 
+        print(resultado_str)
 
-            cont_item += 1
+        cont_item += 1
 
 
 print('\nItens lidos:', cont_item)

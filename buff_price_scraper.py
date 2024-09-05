@@ -1,4 +1,8 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+
 
 '''
 Recebe o nome do produto no formato padrao da steam, e o driver aberto
@@ -50,6 +54,7 @@ Busca o dash_price do BUFF163 dentre diversos outros sites que o csgoskins.gg mo
 Retorna preço e quantidade de ofertas do item
 '''
 def get_price_from_page(product_link, driver):
+    wait = WebDriverWait(driver, 5)
     # Navega para a URL desejada
     driver.get(product_link)
 
@@ -60,26 +65,33 @@ def get_price_from_page(product_link, driver):
         # Encontra todas as divs com a classe desejada
         prod_divs = driver.find_elements(By.CSS_SELECTOR, "div[class='bg-gray-800 rounded shadow-md relative flex items-center flex-wrap my-4 ']")
 
+        
         # Verifica cada div encontrada e procura aquela que armazena o bloco com as infos. do produto no BUFF163
         for prod_div in prod_divs:
 
             # Verifica se a div contém um elemento <a> com a classe desejada
             prod_a = prod_div.find_element(By.CSS_SELECTOR, 'a.hover\\:underline')
-
+            
             # Se encontrar a div com link do BUFF163, salva o preço e a quantidade de ofertas
             if 'BUFF163' in prod_div.text and prod_a.get_attribute('href') == 'https://csgoskins.gg/markets/buff163':
+                
+                wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'span.font-bold.text-lg')))
+                
+                
                 # Encontra o span com o preço dentro da div
-                price_span = prod_div.find_element(By.CSS_SELECTOR, 'span.font-bold.text-xl')
+                price_span = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'span.font-bold.text-lg.sm\\:text-xl')))
 
                 # Pega o texto do span (o preço)
                 price_text = price_span.text
+                
 
                 # Remove o símbolo de dólar e converte o preço para float
                 price = float(price_text.replace('$', ''))
 
 
                 # Encontra o span com o número de ofertas dentro da div
-                offers_span = prod_div.find_element(By.CSS_SELECTOR, 'span[class=""]')
+                offers_span = wait.until(EC.visibility_of_element_located((By.XPATH, './/div[@class="w-full"][2]/span')))
+                
 
                 # Pega o texto do span (a quantidade de ofertas)
                 offers_text = offers_span.text
