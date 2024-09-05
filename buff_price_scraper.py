@@ -75,9 +75,6 @@ def get_price_from_page(product_link, driver):
             # Se encontrar a div com link do BUFF163, salva o preço e a quantidade de ofertas
             if 'BUFF163' in prod_div.text and prod_a.get_attribute('href') == 'https://csgoskins.gg/markets/buff163':
                 
-                wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'span.font-bold.text-lg')))
-                
-                
                 # Encontra o span com o preço dentro da div
                 price_span = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'span.font-bold.text-lg.sm\\:text-xl')))
 
