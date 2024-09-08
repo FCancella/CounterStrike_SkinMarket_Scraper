@@ -3,9 +3,9 @@ import re
 import pandas as pd
 
 # Modules
-from cny2brl import cny_brl_rate
-from buff_skins_id import load_id_dict
-from auxiliary import get_max_page, loading_bar
+from tools.cny2brl import cny_brl_rate
+from tools.buff_skins_id import load_id_dict
+from tools.auxiliary import get_max_page, loading_bar
 
 import requests
 import sys
